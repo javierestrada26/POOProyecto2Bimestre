@@ -57,7 +57,7 @@ abstract class Boleto {
         this.apellido = apellido; // deberia validar
     } // Fin del metodo setApellido
 
-    // devuelve la zona regional  del estudiante
+    
     public String getTipo_Pasajero() {
         return Tipo_Pasajero;
     } // Fin del Metodo
@@ -65,13 +65,11 @@ abstract class Boleto {
     public void setTipo_Pasajero(String Tipo_Pasajero) {
         this.Tipo_Pasajero = Tipo_Pasajero; // deberia validar
     }// Fin del metodo 
-    //_____ Fin de los Metodos get y set de los atributos______//
-
-    //++++++++ Métodos abstracto sobrescrito por las subclases concretas+++++++++//
+   
     abstract public double obtener_descuento(); // No tiene implementaciones
 
     abstract public double obtener_precioBoleto(); // No tiene implementaciones
-    //++++++++ Fin de los métodos abstracto sobrescrito por las subclases concretas+++++++++//
+   
 
     // devuelve representación String de un objeto boleto
     @Override
@@ -79,5 +77,5 @@ abstract class Boleto {
 
         return String.format("%s %s\nCedula: %s\nTipo de Pasajero: %s", getNombre(), getApellido(), getNumCedula(), getTipo_Pasajero());
 
-    } //Fin del metodo toString.
-}// Fin de la superclase abstracta 
+    } 
+}

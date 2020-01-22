@@ -17,10 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     * @throws java.io.FileNotFoundException
-     */
+   
     public static void main(String[] args) throws FileNotFoundException {
         try {
             Formatter outFile = new Formatter("ListadePasajeros.csv"); //CSV
@@ -66,14 +63,14 @@ public class Main {
                 opcion_menu = Integer.parseInt(op);
 
                 switch (opcion_menu) {
-                    case 1://Si la opcion_menu es 1 ejecutara lo siguiente:
+                    case 1:
 
                         op = JOptionPane.showInputDialog("\t\tMENU DE DESTINOS \n" + "|  1 Quito -----> $30\n "
                                 + "|2 Cuenca -----> $20  \n" + "| 3 Ambato -----> $25 \n " + "| 4 Machala -----> $ 15 \n"
                                 + "Ingrese su opcion[1-4]:");
                         op_destino = Integer.parseInt(op);
 
-                        // Inicializacion del switch para ir comprobando los datos ingresados a que curso perteneceran
+                        
                         switch (op_destino) {
                             case 1:
                                 //QUITO
@@ -89,7 +86,7 @@ public class Main {
                                 bt_quito.obtener_descuento();
                                 bt_quito.obtener_precioBoleto();
                                 ct_quito++;
-                                //System.out.println("COMPRA EXITOSA  ");// Salida de dato en pantalla
+                                
                                 JOptionPane.showMessageDialog(null, "COMPRA EXITOSA ");
                                 destino_archivo = "Quito";
                                 descuento_archivo = bt_quito.obtener_descuento();
@@ -110,7 +107,6 @@ public class Main {
                                 bt_cuenca.obtener_descuento();
                                 bt_cuenca.obtener_precioBoleto();
                                 ct_cuenca++;
-                                //System.out.println("COMPRA EXITOSA CON DESTINO A ");// Salida de dato en pantalla
                                 JOptionPane.showMessageDialog(null, "COMPRA EXITOSA ");
                                 destino_archivo = "Cuenca";
                                 descuento_archivo = bt_cuenca.obtener_descuento();
@@ -134,7 +130,7 @@ public class Main {
                                 destino_archivo = "Ambato";
                                 descuento_archivo = bt_ambato.obtener_descuento();
                                 precio_archivo = bt_ambato.obtener_precioBoleto();
-                                break;// Sale de switch
+                                break;
 
                             case 4:
                                 //MACHALA
@@ -156,7 +152,7 @@ public class Main {
                                 break;// Sale de switch
 
                             default:
-                                //System.out.println("Opcion no valida");// Salida de dato en pantalla
+                                
                                 JOptionPane.showMessageDialog(null, "OPCION NO VALIDA ");
                                 break;
 
@@ -169,22 +165,22 @@ public class Main {
                         cedula_archivo = variable_cedula;
                         pasajero_archivo = variable_pasajero;
                         outFile.format("%s;%s;%s;%s;%f;%f;\n", nombre_archivo + " " + apellido_archivo, cedula_archivo, pasajero_archivo, destino_archivo, descuento_archivo, precio_archivo);
-                        break;// Sale del switch opcion_menu
+                        break;
 
-                    case 2: // Si la opcion_menu es 2 ejecutara lo siguiente:
+                    case 2: 
                         // Primero verifica si hay registros de BOLETOS
                         if (ct_quito != 0 || ct_cuenca != 0 || ct_ambato != 0 || ct_machala != 0) {
 
                             JOptionPane.showMessageDialog(null,
                                     "EL REPORTE DE LOS BOLETOS HA SIDO GENERADO\n");
 
-                            break;// Sale del la opcion_menu
+                            break;
                         } else { //Caso contrario muestra lo siguiente
                             JOptionPane.showMessageDialog(null, "Aun no hay boletos vendidos");
                             break;// Sale del la opcion_menu
                         }
                     case 3: // Si la opcion_menu es 3 ejecutara lo siguiente:
-                        // Salida de Datos en pantalla
+                        
 
                         JOptionPane.showMessageDialog(null, "================================================\n"
                                 + "INFORMACION DE BOLETOS VENDIDOS\n" + "================================================\n"
@@ -195,20 +191,20 @@ public class Main {
 
                     default:
                         JOptionPane.showMessageDialog(null, "Opcion no valida");
-                    // Si la opcion ingresada no es ninguno de los cinco casos preseta esto
+                    
 
                 }
 
-                // Lineas de codigo que preguntan al usuario si quiere regresar al menu
+                
                 op = JOptionPane.showInputDialog("Desea ingesar nuevamente al menu [1]Si/[2]No");
                 respuesta = Integer.parseInt(op);
 
                 if (respuesta == 2) {
                     JOptionPane.showMessageDialog(null, "Fue un placer atenderlo");
-                    corrida = false; // la corrida se convierte en falsa y al hacerlo ya no entra al ciclo while
+                    corrida = false; 
                     outFile.close();// Cierra el archivo creado.
                     break; // Linea de codigo que hace que el programa finalice
-                }// Fin del if
+                }
 
             }// Fin del ciclo while
         } catch (FileNotFoundException | HeadlessException | NumberFormatException e) {

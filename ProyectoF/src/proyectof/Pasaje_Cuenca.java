@@ -38,13 +38,13 @@ class Pasaje_Cuenca extends Boleto {
         return descuento;
     }// Fin del metodo obtener_descuento
 
-    // Metodo sobreescrito  obtener_descuento heredado de la superclase Matricula
+    // Metodo sobreescrito  obtener_descuento heredado de la superclas
     @Override
     public double obtener_precioBoleto() {
         return 20 - obtener_descuento();
     }// Fin del metodo obtener_preciomatricula
 
-    // Metodo sobreescrito  toString heredado de la superclase Matricula
+    // Metodo sobreescrito  toString heredado de la superclase 
     @Override
     public String toString() {
         return String.format("%s: %s\n%s: $%,.2f; %s: %.2f",
